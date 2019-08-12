@@ -1,0 +1,47 @@
+{
+  "name": "msbios/iaai",
+  "description": "MSBios IaaI",
+  "license": "MIT",
+  "keywords": [
+    "php"
+  ],
+  "homepage": "https://github.com/msbios/msbios-iaai",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Judzhin Miles",
+      "email": "info@msbios.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MSBios\\IaaI\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MSBiosTest\\IaaI\\": "tests/"
+    }
+  },
+  "require": {
+    "zendframework/zend-soap": "^2.8"
+  },
+  "require-dev": {
+    "msbios/test": "^1.0"
+  },
+  "scripts": {
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf",
+    "test": [
+      "@cs-check",
+      "phpunit --colors=always"
+    ],
+    "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+    "upload-coverage": "coveralls -v"
+  },
+  "extra": {
+    "zf": {
+      "component": "MSBios\\IaaI"
+    }
+  }
+}
