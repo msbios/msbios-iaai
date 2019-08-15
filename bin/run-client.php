@@ -51,7 +51,7 @@ $service = new \MSBios\IaaI\Client(__DIR__ . '/../DDRService.wsdl',  [
 ]);
 
 $loginResponse = $service->Login(
-    new \MSBios\IaaI\Login('CAR.UK1211', 'JRLAKE5672')
+    new \MSBios\IaaI\Login('', '')
 );
 
 var_dump($loginResponse);
