@@ -94,9 +94,7 @@ class StockInfoController extends AbstractActionController
 
             /** @var string $stockNumber */
             foreach ($this->getStocksByAuctionDateByBranch($branchCode) as $stockNumber) {
-                $result = $this->updater->updateItems([$this->getStockInfo($stockNumber, $branchCode)]);
-
-                var_dump($result);
+                $this->updater->updateItems([$this->getStockInfo($stockNumber, $branchCode)]);
             }
         }
     }

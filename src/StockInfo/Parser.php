@@ -4,14 +4,14 @@
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
 
-namespace MSBios\IaaI\Parser;
+namespace MSBios\IaaI\StockInfo;
 use Zend\Config\Reader\Xml;
 
 /**
- * Class StockInfoParser
- * @package MSBios\IaaI\Parser
+ * Class Parser
+ * @package MSBios\IaaI\StockInfo
  */
-class StockInfoParser
+class Parser
 {
     /**
      * @param string $stockInfo

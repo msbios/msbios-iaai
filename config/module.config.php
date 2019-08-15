@@ -8,7 +8,6 @@ namespace MSBios\IaaI;
 
 use Zend\Mvc\Controller\LazyControllerAbstractFactory;
 use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\ServiceManager\Proxy\LazyServiceFactory;
 
 return [
     'service_manager' => [
@@ -20,12 +19,11 @@ return [
             LoginResponse::class =>
                 Factory\LoginResponseFactory::class,
 
-            Parser\StockInfoParser::class =>
+            StockInfo\Parser::class =>
                 InvokableFactory::class,
 
-            Updater\StockInfoUpdater::class =>
+            StockInfo\Updater::class =>
                 LazyControllerAbstractFactory::class,
-
         ],
     ],
 
