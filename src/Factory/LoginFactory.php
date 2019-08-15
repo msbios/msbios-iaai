@@ -6,16 +6,15 @@
 namespace MSBios\IaaI\Factory;
 
 use Interop\Container\ContainerInterface;
-use MSBios\IaaI\ClientInterface;
-use MSBios\IaaI\Controller\StockController;
 use MSBios\IaaI\Login;
+use MSBios\IaaI\Module;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
 /**
- * Class StockControllerFactory
+ * Class LoginFactory
  * @package MSBios\IaaI\Factory
  */
-class StockControllerFactory implements FactoryInterface
+class LoginFactory implements FactoryInterface
 {
     /**
      * @inheritdoc
@@ -23,13 +22,12 @@ class StockControllerFactory implements FactoryInterface
      * @param ContainerInterface $container
      * @param string $requestedName
      * @param array|null $options
-     * @return StockController
+     * @return Login
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        return new StockController(
-            $container->get(ClientInterface::class),
-            $container->get(Login::class)
-        );
+        /** @var array $config */
+        $config = $container->get(Module::class);
+        return new Login($config['username'], $config['password']);
     }
 }

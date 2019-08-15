@@ -6,14 +6,13 @@
 
 namespace MSBios\IaaI;
 
-use Zend\ServiceManager\Factory\InvokableFactory;
-
 return [
-
     'service_manager' => [
         'factories' => [
             ClientInterface::class =>
-                Factory\ClientFactory::class
+                Factory\ClientFactory::class,
+            Login::class =>
+                Factory\LoginFactory::class
         ]
     ],
 
@@ -62,6 +61,7 @@ return [
          *
          */
         'options' => [
+            'soap_version' => SOAP_1_1,
             'classmap' => [
                 'ArrayOfint' => ArrayOfint::class,
                 'ArrayOfstring' => ArrayOfstring::class,
