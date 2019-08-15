@@ -7,6 +7,7 @@ return [
     'modules' => [
         'Zend\Router',
         'Zend\Mvc\Console',
+        'MSBios',
         'MSBios\IaaI',
     ],
     'module_listener_options' => [

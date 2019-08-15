@@ -13,79 +13,79 @@ interface ClientInterface
 {
     /**
      * @param Login $parameters
-     * @return mixed
+     * @return LoginResponse
      */
-    public function Login(Login $parameters);
+    public function Login(Login $parameters): LoginResponse;
 
     /**
-     * @param BranchListParameters $parameters
-     * @return BranchListResponse
+     * @param GetBranchList $parameters
+     * @return GetBranchListResponse
      */
-    public function GetBranchList(BranchListParameters $parameters);
+    public function GetBranchList(GetBranchList $parameters): GetBranchListResponse;
 
     /**
-     * @param BranchInfoParameters $parameters
-     * @return BranchInfoResponse
+     * @param GetBranchInfo $parameters
+     * @return GetBranchInfoResponse
      */
-    public function GetBranchInfo(BranchInfoParameters $parameters);
+    public function GetBranchInfo(GetBranchInfo $parameters): GetBranchInfoResponse;
 
     /**
-     * @param ChangedStockListByLastAccessParameters $parameters
-     * @return ChangedStockListByLastAccessResponse
+     * @param GetchangedStockListbyLastAccess $parameters
+     * @return GetchangedStockListbyLastAccessResponse
      */
-    public function GetChangedStockListByLastAccess(ChangedStockListByLastAccessParameters $parameters);
+    public function GetchangedStockListbyLastAccess(GetchangedStockListbyLastAccess $parameters): GetchangedStockListbyLastAccessResponse;
 
     /**
-     * @param StockInfoParameters $parameters
-     * @return StockInfoResponse
+     * @param GetStockInfo $parameters
+     * @return GetStockInfoResponse
      */
-    public function GetStockInfo(StockInfoParameters $parameters);
+    public function GetStockInfo(GetStockInfo $parameters): GetStockInfoResponse;
 
     /**
-     * @param StockCurrentBidParameters $parameters
-     * @return StockCurrentBidResponse
+     * @param GetStockCurrentBid $parameters
+     * @return GetStockCurrentBidResponse
      */
-    public function GetStockCurrentBid(StockCurrentBidParameters $parameters);
+    public function GetStockCurrentBid(GetStockCurrentBid $parameters): GetStockCurrentBidResponse;
 
     /**
-     * @param AuctionDateListByBranchParameters $parameters
-     * @return AuctionDateListByBranchResponse
+     * @param GetAuctionDateListByBranch $parameters
+     * @return GetAuctionDateListByBranchResponse
      */
-    public function GetAuctionDateListByBranch(AuctionDateListByBranchParameters $parameters);
+    public function GetAuctionDateListByBranch(GetAuctionDateListByBranch $parameters): GetAuctionDateListByBranchResponse;
 
     /**
-     * @param StockListByAuctionDateByBranchParameters $parameters
-     * @return StockListByAuctionDateByBranchResponse
+     * @param GetStockListByAuctionDateByBranch $parameters
+     * @return GetStockListByAuctionDateByBranchResponse
      */
-    public function GetStockListByAuctionDateByBranch(StockListByAuctionDateByBranchParameters $parameters);
+    public function GetStockListByAuctionDateByBranch(GetStockListByAuctionDateByBranch $parameters): GetStockListByAuctionDateByBranchResponse;
 
     /**
-     * @param ChangedStockListByAuctionDateByBranchParameters $parameters
-     * @return ChangedStockListByAuctionDateByBranchResponse
+     * @param GetChangedStockListByAuctionDateByBranch $parameters
+     * @return GetChangedStockListByAuctionDateByBranchResponse
      */
-    public function GetChangedStockListByAuctionDateByBranch(ChangedStockListByAuctionDateByBranchParameters $parameters);
+    public function GetChangedStockListByAuctionDateByBranch(GetChangedStockListByAuctionDateByBranch $parameters): GetChangedStockListByAuctionDateByBranchResponse;
 
     /**
-     * @param StocksRecentBidsParameters $parameters
-     * @return StocksRecentBidsResponse
+     * @param GetStocksRecentBids $parameters
+     * @return GetStocksRecentBidsResponse
      */
-    public function GetStocksRecentBids(StocksRecentBidsParameters $parameters);
+    public function GetStocksRecentBids(GetStocksRecentBids $parameters): GetStocksRecentBidsResponse;
 
     /**
-     * @param IBuyFastStocksParameters $parameters
-     * @return IBuyFastStocksResponse
+     * @param GetIBuyFastStocks $parameters
+     * @return GetIBuyFastStocksResponse
      */
-    public function GetIBuyFastStocks(IBuyFastStocksParameters $parameters);
+    public function GetIBuyFastStocks(GetIBuyFastStocks $parameters): GetIBuyFastStocksResponse;
 
     /**
-     * @param UtcAuctionDateByBranchParameters $parameters
-     * @return UtcAuctionDateByBranchResponse
+     * @param GetUtcAuctionDateByBranch $parameters
+     * @return GetUtcAuctionDateByBranchResponse
      */
-    public function GetUtcAuctionDateByBranch(UtcAuctionDateByBranchParameters $parameters);
+    public function GetUtcAuctionDateByBranch(GetUtcAuctionDateByBranch $parameters): GetUtcAuctionDateByBranchResponse;
 
     /**
-     * @param CurrentStockStatusParameters $parameters
-     * @return CurrentStockStatusResponse
+     * @param GetCurrentStockStatus $parameters
+     * @return GetCurrentStockStatusResponse
      */
-    public function GetCurrentStockStatus(CurrentStockStatusParameters $parameters);
+    public function GetCurrentStockStatus(GetCurrentStockStatus $parameters): GetCurrentStockStatusResponse;
 }

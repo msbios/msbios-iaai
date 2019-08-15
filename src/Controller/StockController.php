@@ -6,7 +6,9 @@
 
 namespace MSBios\IaaI\Controller;
 
+use MSBios\IaaI\ClientInterface;
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\Soap\Client;
 
 /**
  * Class StockController
@@ -14,11 +16,23 @@ use Zend\Mvc\Controller\AbstractActionController;
  */
 class StockController extends AbstractActionController
 {
+    /** @var Client|ClientInterface */
+    protected $client;
+
+    /**
+     * StockController constructor.
+     * @param Client $client
+     */
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+    }
+
     /**
      *
      */
     public function synchAction(): void
     {
-        echo __METHOD__;
+        // var_dump($this->client->Login());
     }
 }

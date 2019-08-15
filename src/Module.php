@@ -46,8 +46,15 @@ class Module extends \MSBios\Module implements BootstrapListenerInterface
     {
         /** @var ApplicationInterface $application */
         $application = $e->getTarget();
-        $application->getEventManager()->attach(MvcEvent::EVENT_DISPATCH_ERROR, function(EventInterface $event){
-            var_dump($event->getParam('error')); die;
-        });
+        $application->getEventManager()->attach(MvcEvent::EVENT_DISPATCH_ERROR, [$this, 'onDispatchError']);
+    }
+
+    /**
+     * @param EventInterface $e
+     */
+    public function onDispatchError(EventInterface $e)
+    {
+        var_dump($e);
+        die;
     }
 }
