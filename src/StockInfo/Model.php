@@ -16,12 +16,29 @@ use Zend\Db\TableGateway\Feature\GlobalAdapterFeature;
 class Model extends RowGateway
 {
     /**
+     * Model constructor.
+     *
+     * @inheritdoc
+     *
+     * @param string $primaryKeyColumn
+     * @param string $table
+     * @param null $adapterOrSql
+     */
+    public function __construct($primaryKeyColumn = 'ItemID', $table = 'stocks', $adapterOrSql = null)
+    {
+        if (null === $adapterOrSql) {
+            $adapterOrSql = GlobalAdapterFeature::getStaticAdapter();
+        }
+
+        parent::__construct($primaryKeyColumn, $table, $adapterOrSql);
+    }
+
+    /**
      * @param array $rowData
      * @return Model
      */
     public static function factory(array $rowData = []): self
     {
-        return (new self('id', 'stocks', GlobalAdapterFeature::getStaticAdapter()))
-            ->populate($rowData);
+        return (new self)->populate($rowData);
     }
 }
