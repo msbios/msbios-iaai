@@ -8,6 +8,7 @@ namespace MSBios\IaaI\Controller;
 
 use MSBios\IaaI\ClientInterface;
 use MSBios\IaaI\Login;
+use MSBios\IaaI\LoginResponse;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Soap\Client;
 
@@ -35,10 +36,12 @@ class StockController extends AbstractActionController
     }
 
     /**
-     *
+     * 
      */
     public function synchAction(): void
     {
-        var_dump($this->client->Login($this->login));
+        /** @var LoginResponse $loginResponse */
+        $loginResponse = $this->client->Login($this->login);
+        var_dump($loginResponse->getLoginResult());
     }
 }
