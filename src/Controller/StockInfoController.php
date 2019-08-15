@@ -11,7 +11,7 @@ use MSBios\IaaI\GetBranchList;
 use MSBios\IaaI\GetStockInfo;
 use MSBios\IaaI\GetStockListByAuctionDateByBranch;
 use MSBios\IaaI\LoginResponse;
-use MSBios\IaaI\Updater\StockInfoUpdater;
+use MSBios\IaaI\StockInfo\Updater as StockInfoUpdater;
 use Zend\Mvc\Controller\AbstractActionController;
 
 /**

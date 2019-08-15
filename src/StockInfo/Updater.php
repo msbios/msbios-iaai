@@ -31,21 +31,27 @@ class Updater
      */
     public function updateItem(string $item): RowGatewayInterface
     {
+
+        //var_dump($this->parser->parse($item)['branchphone']); die;
+
         /** @var RowGatewayInterface $row */
         $row = Model::factory($this->parser->parse($item));
         $row->save();
+
+        var_dump($item); die();
+
         return $row;
     }
 
     /**
      * @param array $items
-     * @return iterable
+     * @return \Generator
      */
-    public function updateItems(array $items): iterable
+    public function updateItems(array $items)
     {
         /** @var array $item */
         foreach ($items as $item) {
-            yield $this->updateItem($item);
+            $this->updateItem($item);
         }
     }
 }

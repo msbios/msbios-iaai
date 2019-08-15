@@ -6,12 +6,28 @@
 
 namespace MSBios\IaaI;
 
+use Zend\Db\Adapter\AdapterInterface;
+use Zend\Db\Adapter\AdapterServiceFactory;
 use Zend\Mvc\Controller\LazyControllerAbstractFactory;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
+
+    'db' => [
+        'driver' => 'Pdo',
+        'dsn' => 'mysql:dbname=;host=',
+        'username' => null,
+        'password' => null,
+        'driver_options' => [
+            \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+        ],
+    ],
+
     'service_manager' => [
         'factories' => [
+            AdapterInterface::class =>
+                AdapterServiceFactory::class,
+
             ClientInterface::class =>
                 Factory\ClientFactory::class,
             Login::class =>

@@ -29,7 +29,8 @@
     "zendframework/zend-mvc-console": "^1.2",
     "msbios/msbios": "^1.0",
     "ocramius/proxy-manager": "^2.2",
-    "zendframework/zend-db": "^2.10"
+    "zendframework/zend-db": "^2.10",
+    "zendframework/zend-inputfilter": "^2.10"
   },
   "require-dev": {
     "msbios/test": "^1.0",

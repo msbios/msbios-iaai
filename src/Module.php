@@ -5,6 +5,8 @@
 
 namespace MSBios\IaaI;
 
+use Zend\Db\Adapter\AdapterInterface;
+use Zend\Db\TableGateway\Feature\GlobalAdapterFeature;
 use Zend\EventManager\EventInterface;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\Mvc\ApplicationInterface;
@@ -46,6 +48,9 @@ class Module extends \MSBios\Module implements BootstrapListenerInterface
     {
         /** @var ApplicationInterface $application */
         $application = $e->getTarget();
+
+        GlobalAdapterFeature::setStaticAdapter($application->getServiceManager()->get(AdapterInterface::class));
+
         $application->getEventManager()->attach(MvcEvent::EVENT_DISPATCH_ERROR, [$this, 'onDispatchError']);
     }
 
