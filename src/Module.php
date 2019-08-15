@@ -54,7 +54,8 @@ class Module extends \MSBios\Module implements BootstrapListenerInterface
      */
     public function onDispatchError(EventInterface $e)
     {
-        var_dump($e);
+        var_dump($e->getParam('exception')->getMessage());
+        // var_dump($e->getParams());
         die;
     }
 }

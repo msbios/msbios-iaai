@@ -6,20 +6,33 @@
 
 namespace MSBios\IaaI;
 
+use Zend\Mvc\Controller\LazyControllerAbstractFactory;
+use Zend\ServiceManager\Factory\InvokableFactory;
+use Zend\ServiceManager\Proxy\LazyServiceFactory;
+
 return [
     'service_manager' => [
         'factories' => [
             ClientInterface::class =>
                 Factory\ClientFactory::class,
             Login::class =>
-                Factory\LoginFactory::class
-        ]
+                Factory\LoginFactory::class,
+            LoginResponse::class =>
+                Factory\LoginResponseFactory::class,
+
+            Parser\StockInfoParser::class =>
+                InvokableFactory::class,
+
+            Updater\StockInfoUpdater::class =>
+                LazyControllerAbstractFactory::class,
+
+        ],
     ],
 
     'controllers' => [
         'factories' => [
-            Controller\StockController::class =>
-                Factory\StockControllerFactory::class
+            Controller\StockInfoController::class =>
+                LazyControllerAbstractFactory::class
         ]
     ],
 
@@ -31,7 +44,7 @@ return [
                     'options' => [
                         'route' => 'stock',
                         'defaults' => [
-                            'controller' => Controller\StockController::class,
+                            'controller' => Controller\StockInfoController::class,
                             'action' => 'synch',
                         ],
                     ],

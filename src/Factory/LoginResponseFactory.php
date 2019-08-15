@@ -3,19 +3,19 @@
  * @access protected
  * @author Judzhin Miles <info[woof-woof]msbios.com>
  */
+
 namespace MSBios\IaaI\Factory;
 
 use Interop\Container\ContainerInterface;
 use MSBios\IaaI\ClientInterface;
-use MSBios\IaaI\Controller\StockController;
 use MSBios\IaaI\Login;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
 /**
- * Class StockControllerFactory
+ * Class LoginResponseFactory
  * @package MSBios\IaaI\Factory
  */
-class StockControllerFactory implements FactoryInterface
+class LoginResponseFactory implements FactoryInterface
 {
     /**
      * @inheritdoc
@@ -23,13 +23,12 @@ class StockControllerFactory implements FactoryInterface
      * @param ContainerInterface $container
      * @param string $requestedName
      * @param array|null $options
-     * @return StockController
+     * @return \MSBios\IaaI\LoginResponse
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        return new StockController(
-            $container->get(ClientInterface::class),
-            $container->get(Login::class)
-        );
+        /** @var ClientInterface $client */
+        $client = $container->get(ClientInterface::class);
+        return $client->Login($container->get(Login::class));
     }
 }
