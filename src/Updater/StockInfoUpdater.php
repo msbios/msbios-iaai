@@ -28,26 +28,23 @@ class StockInfoUpdater
 
     /**
      * @param string $item
+     * @return array
      */
-    public function updateItem(string $item)
+    public function updateItem(string $item): array
     {
         /** @var array $result */
-        $result = $this->parser->parse($item);
-
-        r($result); die;
+        return $this->parser->parse($item);
     }
 
     /**
      * @param array $items
-     * @return StockInfoUpdater
+     * @return iterable
      */
-    public function updateItems(array $items): self
+    public function updateItems(array $items): iterable
     {
         /** @var array $item */
         foreach ($items as $item) {
-            $this->updateItem($item);
+            yield $this->updateItem($item);
         }
-
-        return $this;
     }
 }
