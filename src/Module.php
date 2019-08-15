@@ -5,11 +5,16 @@
 
 namespace MSBios\IaaI;
 
+use Zend\EventManager\EventInterface;
+use Zend\ModuleManager\Feature\BootstrapListenerInterface;
+use Zend\Mvc\ApplicationInterface;
+use Zend\Mvc\MvcEvent;
+
 /**
  * Class Module
  * @package MSBios\IaaI
  */
-class Module extends \MSBios\Module
+class Module extends \MSBios\Module implements BootstrapListenerInterface
 {
     /** @const VERSION */
     const VERSION = '1.0.0';
@@ -32,5 +37,17 @@ class Module extends \MSBios\Module
     protected function getNamespace()
     {
         return __NAMESPACE__;
+    }
+
+    /**
+     * @param EventInterface $e
+     */
+    public function onBootstrap(EventInterface $e)
+    {
+        /** @var ApplicationInterface $application */
+        $application = $e->getTarget();
+        $application->getEventManager()->attach(MvcEvent::EVENT_DISPATCH_ERROR, function(EventInterface $event){
+            var_dump($event->getParam('error')); die;
+        });
     }
 }
